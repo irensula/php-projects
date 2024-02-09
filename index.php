@@ -3,71 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
-    <title>Calculator</title>
+    <title>Document</title>
 </head>
 <body>
-    
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <input type="number" name="num01" placeholder="Number one" required>
-        <select name="operator">
-            <option value="add">+</option>
-            <option value="subtract">-</option>
-            <option value="multiply">*</option>
-            <option value="divide">/</option>
-        </select>
-        <input type="number" name="num02" placeholder="Number two" required>
-        <button>Calculate</button>
+    <h3>Signup</h3>
+
+    <form action="includes/formhandler.inc.php" method="post">
+
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="pwd" placeholder="Password">
+        <input type="text" name="email" placeholder="E-Mail">
+        <button>Signup</button>
     </form>
 
-    <?php 
-    if($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Grab data from inputs 
-        $num01 = filter_input(INPUT_POST, "num01", FILTER_SANITIZE_NUMBER_FLOAT);
-        $num02 = filter_input(INPUT_POST, "num02", FILTER_SANITIZE_NUMBER_FLOAT);
-        $operator = htmlspecialchars($_POST["operator"]);
-    
-        // Error handlers
-        $errors = false;
+    <h3>Update account</h3>
 
-        if (empty($num01) || empty($num02) || empty($operator)) {
-            echo "<p class='calc-error'>Fill in all fields!</p>";
-            $errors = true;
-        }
+    <form action="includes/userupdate.inc.php" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="pwd" placeholder="Password">
+        <input type="text" name="email" placeholder="email">
+        <button>Update</button>
+    </form>
 
-        if (!is_numeric($num01) || !is_numeric($num02)) {
-            echo "<p class='calc-error'>Only write numbers!</p>";
-            $errors = true;
-        }
+    <h3>Delete account</h3>
 
-        // Calculate the numbers if no errors
-        if (!$errors) {
-            $value = 0;
+    <form action="includes/userdelete.inc.php" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="pwd" placeholder="Password">
+        <input type="text" name="email" placeholder="email">
+        <button>Delete</button>
+    </form>
 
-            switch ($operator) {
-                case "add":
-                    $value = $num01 + $num02;
-                    break;
-                case "subtract":
-                    $value = $num01 - $num02;
-                    break;
-                case "multiply":
-                    $value = $num01 * $num02;
-                    break;
-                case "divide":
-                    $value = $num01 / $num02;
-                    break;
-                default:
-                    echo "<p class='calc-error'>Something went wrong.</p>";
-            }
-            echo "<p class='calc-result'>Result = " . $value . "</p>";
-        }
-    }
-
-    
-
-    ?>
+    <form action="search.php" method="post">
+        <label for="search">Search for user:</label>
+        <input id="search" type="text" name="usersearch" placeholder="Search...">
+        <button>Search</button>
+    </form>
 
 </body>
 </html>
