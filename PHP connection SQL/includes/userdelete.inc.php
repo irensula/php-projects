@@ -10,10 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query = "DELETE FROM users WHERE username = :username AND pwd = :pwd ;";
         
         $stmt = $pdo->prepare($query);
-        $stmt->execute([$username, $pwd]);
         
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":pwd", $pwd);
+
+        $stmt->execute();
 
         $pdo = null;
         $stmt = null;

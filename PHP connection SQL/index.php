@@ -12,10 +12,9 @@
     <form action="includes/formhandler.inc.php" method="post">
 
         <input type="text" name="username" placeholder="Username">
-        <input type="text" name="pwd" placeholder="Password">
-        <input type="text" name="email" placeholder="email">
+        <input type="password" name="pwd" placeholder="Password">
+        <input type="text" name="email" placeholder="E-Mail">
         <button>Signup</button>
-
     </form>
 
     <h3>Update account</h3>

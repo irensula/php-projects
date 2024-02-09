@@ -11,11 +11,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query = "UPDATE users SET username = :username, pwd = :pwd, email = :email WHERE id = 2;";
         
         $stmt = $pdo->prepare($query);
-        $stmt->execute([$username, $pwd, $email]);
         
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":pwd", $pwd);
         $stmt->bindParam(":email", $email);
+
+        $stmt->execute();
 
         $pdo = null;
         $stmt = null;
