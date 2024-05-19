@@ -54,8 +54,51 @@ class Calendar {
     $content.='</div>';
     return $content;
  }
+
 // private
 // create the li element for ul
+
+private function _showDay($cellNumber) {
+    if($this->currentDay==0) {
+        if($this->currentDay==0) {
+            $firstDayOfTheWeek = date('N', strtotime($this->currentYear.'-'.$this->currentMonth.'-01'));
+        if(intval($cellNumber) == intval($firstDayOfTheWeek)) {
+            $this->currentDay=1;
+        }
+    }
+    if(($this->currentDay != 0) && ($this->currentDay<=$this->daysInMoth)) {
+        $this->currentDate = date('Y-m-d', strtotime($this->currentYear.'-'.$this->currentMonth.'-'.($this->currentDay)));
+
+        $cellContent = $this->currentDay;
+
+        $this->currentDay++;
+    } else {
+        $this->currentDate=null;
+        $cellContent=null;
+    }
+    return '<li id="li-'.$this->currentDate.'"class="'.($cellNumber % 7==1 ? 'start ' : ($cellNumber % 7 == 0 ? ' end ':' ')).
+    ($cellContent==null ?'mask':'').'")'.'">'.$cellContent.'</li>';
+    }
+}
+// create navigation
+private function _createNavi() {
+    $nextMonth = $this->currentMonth == 12 ? 1 : intval($this->currentMonth) + 1;
+    $nextYear = $this->currentMonth == 12 ? intval($this->currentYear) + 1 : $this->currentYear;
+    $preMonth = $this->currentMonth == 1 ? 12 : intval($this->currentMonth) - 1;
+    $preYear = $this->currentMonth == 1 ? intval($this->currentYear) - : $this->currentYear;
+
+}
+
+    private function _weeksInMonth($month=null, $year=null) {
+        if( null==($year) ) {
+            $year = date("Y", time());
+        }
+        if(null==($month)) {
+            $month = date("m", time());
+        }
+    }
+
+
 
 
 }
