@@ -85,7 +85,7 @@
     // Generate the calendar
     function generate_calendar($month, $year) {
         // Array containing the names of the days of the week
-        $days_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+        $days_of_week = array('Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'La');
 
         // Number of days in the month
         $number_days = cal_days_in_month(CAL_GREGORIAN, $month, $year);

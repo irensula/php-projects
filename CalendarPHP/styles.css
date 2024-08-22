@@ -15,7 +15,7 @@ main {
 header {
     height: 4em;
     background: var(--dark-blue);
-    padding: 3em 5em;
+    padding: 2em 5em;
 }
 .header-container {
     display: flex;
@@ -26,7 +26,7 @@ header {
     font-size: 3em;
 }
 .main-title {
-    font-size: 2.8em;
+    font-size: 2em;
     text-transform: uppercase;
     color: var(--white);
 }
@@ -60,36 +60,38 @@ nav ul li {
 }
 /* MAIN */
 .container {
-    width: 60%;
-    margin: 4em auto;
+    width: 50%;
+    margin: 30px auto 10px auto;
 }
 .calendar {
     border-collapse: separate; 
     border-spacing: 15px;
-    width: 60%;
-    margin: 2em auto;
+    width: 50%;
+    margin: 0 auto 30px auto;
 }
 .title, i {
-    font-size: 2em;
+    font-size: 1.5em;
     text-transform: uppercase;
     color: var(--yellow);
-    margin-bottom: 1.5em;
+    margin-bottom: 20px;
 }
 .info {
     line-height: 1.5em;
-    margin-bottom: 2em;
+    margin-bottom: 30px;
 }
 .month {
     text-align: center;
 }
 .month i, .month h2 {
     display: inline-block;
+    font-size: 1.5em;
 }
 i {
-    margin: 0 1em;
+    font-size: 1em;
+    margin: 0 20px;
 }
 .month-title {
-    font-size: 3em;
+    font-size: 20px;
     color: var(--yellow);
     margin-bottom: 20px;
 }
@@ -99,13 +101,12 @@ i {
     text-align: center;
 } */
 .day {
-    width: 3em;
-    height: 3em;
+    width: 2em;
+    height: 2em;
     background: var(--blue);
-    margin: 0.3em;
     border-radius: 10px;
     color: var(--yellow);
-    font-size: 2em;
+    font-size: 1.5em;
     line-height: 3em;
     text-align: center;
     cursor: pointer;
@@ -120,10 +121,10 @@ i {
     transform: translateY(-2px);
 }
 .days-of-week {
-    height: 2em;
+    height: 1.5em;
     background-color: transparent;
     color: var(--yellow);
-    font-size: 2em;
+    font-size: 1.5em;
 }
 /* ilmoitus */
 .form-title {
@@ -209,14 +210,13 @@ footer {
 }
 @media (max-width: 1600px){
     .container {
-        width: 80%;
-        margin: 4em auto;
+        width: 50%;
     }
 }
 @media (max-width: 1400px){
     .calendar {
         width: 80%;
-        margin: 2em auto;
+        margin: 15px auto 30px auto;
     }
     .main-title {
         font-size: 2em;
@@ -265,7 +265,6 @@ footer {
 @media (max-width: 600px){
     .container {
         width: 90%;
-        margin: 4em auto;
     }
     .month {
         font-size: 0.8em;
