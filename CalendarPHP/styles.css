@@ -1,0 +1,306 @@
+:root {
+    --dark-blue: #333973;
+    --blue: #3979e1;
+    --yellow: #fda833;
+    --white: #fff;
+}
+body {
+    min-height: 100vh;
+    font-family: "Open Sans", sans-serif;
+}
+main {
+    min-height: calc(100vh - 350px);
+}
+/* HEADER */
+header {
+    height: 4em;
+    background: var(--dark-blue);
+    padding: 3em 5em;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fa-solid {
+    font-size: 3em;
+}
+.main-title {
+    font-size: 2.8em;
+    text-transform: uppercase;
+    color: var(--white);
+}
+.main-title-mobile {
+    display: none;
+}
+nav ul li { 
+    display:inline; 
+}  
+.navbutton {
+    background-color: var(--yellow);
+    color: var(--dark-blue);
+    width: 10em;
+    padding: 0;
+    height: 3.1em;
+    border-radius: 10px;
+    border: none;
+    margin-left: 2em;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+}
+.fa-solid.fa-bars {
+    display: none;
+}
+/* MAIN */
+.container {
+    width: 60%;
+    margin: 4em auto;
+}
+.calendar {
+    border-collapse: separate; 
+    border-spacing: 15px;
+    width: 60%;
+    margin: 2em auto;
+}
+.title, i {
+    font-size: 2em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 1.5em;
+}
+.info {
+    line-height: 1.5em;
+    margin-bottom: 2em;
+}
+.month {
+    text-align: center;
+}
+.month i, .month h2 {
+    display: inline-block;
+}
+i {
+    margin: 0 1em;
+}
+.month-title {
+    font-size: 3em;
+    color: var(--yellow);
+    margin-bottom: 20px;
+}
+/* .days {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    text-align: center;
+} */
+.day {
+    width: 3em;
+    height: 3em;
+    background: var(--blue);
+    margin: 0.3em;
+    border-radius: 10px;
+    color: var(--yellow);
+    font-size: 2em;
+    line-height: 3em;
+    text-align: center;
+    cursor: pointer;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+}
+.day:hover, .navbutton:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+.days-of-week {
+    height: 2em;
+    background-color: transparent;
+    color: var(--yellow);
+    font-size: 2em;
+}
+/* ilmoitus */
+.form-title {
+    font-size: 2em;
+    color: var(--yellow);
+    margin-bottom: 2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+.application-container {
+    width: 40%;
+    margin: 2em auto;
+}
+.application-form {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 30px;
+}
+input {
+    font-size: 15px;
+    line-height: 25px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+label {
+    margin-bottom: 20px;
+    color: var(--dark-blue);
+    font-weight: 600;
+}
+select, textarea {
+    border-radius: 10px;
+    margin-bottom: 30px;
+    font-size: 15px;
+    line-height: 25px;
+}
+#day {
+    border: 1px solid black;
+}
+input::placeholder {
+    font-size: 20px;
+    line-height: 25px;
+  }
+.form-button {
+    background-color: var(--yellow);
+    color: var(--dark-blue);
+    width: 10em;
+    margin-left: calc(50% - 5em);
+    padding: 0;
+    height: 3.1em;
+    border-radius: 10px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+}
+.hiddenEndDay {
+    display: none;
+}
+.visibleEndDay {
+    display: block;
+}
+/* FOOTER */
+footer {
+    height: 4em;
+    background: var(--dark-blue);
+    padding: 4em;
+    display: flex;
+    align-items: center;
+}
+.copyright {
+    color: var(--yellow);
+    font-size: 1.1em;   
+}
+.year {
+    margin: 0 1em 0 2em;
+}
+@media (max-width: 1600px){
+    .container {
+        width: 80%;
+        margin: 4em auto;
+    }
+}
+@media (max-width: 1400px){
+    .calendar {
+        width: 80%;
+        margin: 2em auto;
+    }
+    .main-title {
+        font-size: 2em;
+    }
+    .navbutton {
+        display: none;
+    }
+    .fa-solid.fa-bars {
+        display: block;
+    }
+}
+@media (max-width: 1100px){
+   
+}
+@media (max-width: 900px){
+    header {
+        padding: 3em 1em;
+    }
+    .days ul {
+        width: 100%;
+    }
+}
+@media (max-width: 800px){
+    header {
+        padding: 2em 4em 5em 4em;
+    }
+    .main-title {
+        display: none;
+    }
+    .main-title-mobile {
+        display: block;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        color: var(--white);
+        padding: 1em 0;
+    }
+    .day {
+        width: 2.5em;
+        height: 2.5em;
+        margin: 0.3em;
+        border-radius: 5px;
+        font-size: 2em;
+        line-height: 2.5em;
+    }
+}
+@media (max-width: 600px){
+    .container {
+        width: 90%;
+        margin: 4em auto;
+    }
+    .month {
+        font-size: 0.8em;
+    }
+    .day {
+        width: 2.2em;
+        height: 2.2em;
+        margin: 0.2em;
+        border-radius: 5px;
+        font-size: 1em;
+        line-height: 2.2em;
+    }
+    footer {
+        flex-direction: column;
+        padding: 3em 1em 6em 1em;
+    }
+    footer .logo {
+        margin-bottom: 2em;
+    }
+}
+
+/* php calendar */
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 0;
+}
+th {
+    border: 0;
+}
+.nav a {
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
