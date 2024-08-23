@@ -165,3 +165,5 @@
 </body>
 </body>
 </html>
+
+<!-- <a class='day' href='add_application?date=" . urlencode($i) . "&month=" . urlencode($month_num) . "&year=" . urlencode($year) . "' target='_blank'>" . $i . "</a> -->
