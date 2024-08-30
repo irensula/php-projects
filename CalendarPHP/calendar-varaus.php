@@ -85,17 +85,18 @@
     // Generate the calendar
     function generate_calendar($month, $year) {
         // Array containing the names of the days of the week
-        $days_of_week = array('Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'La');
+        $days_of_week = array('Ma', 'Ti', 'Ke', 'To', 'Pe', 'La', 'Su');
 
         // Number of days in the month
         $number_days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
 
         // Get the first day of the month
         $date_info = getdate(mktime(0, 0, 0, $month, 1, $year));
-
+        
         // Index value 0-6 of the first day of the month
-        $first_day = $date_info['wday'];
-
+        // $first_day = $date_info['wday'];
+        $first_day = -1;
+        
         // Create the calendar HTML
         $calendar = "<table class='calendar'>";
         $calendar .= "<tr>";
@@ -122,7 +123,10 @@
                 $calendar .= "</tr><tr>";
             }
 
-            $calendar .= "<td class='day'>$current_day</td>";
+            $calendar .= "<td class='day'>
+            <a href=''>
+            $current_day
+            </a></td>";
 
             $current_day++;
             $first_day++;
@@ -165,5 +169,3 @@
 </body>
 </body>
 </html>
-
-<!-- <a class='day' href='add_application?date=" . urlencode($i) . "&month=" . urlencode($month_num) . "&year=" . urlencode($year) . "' target='_blank'>" . $i . "</a> -->
