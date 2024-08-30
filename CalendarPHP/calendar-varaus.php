@@ -95,7 +95,7 @@
         
         // Index value 0-6 of the first day of the month
         // $first_day = $date_info['wday'];
-        $first_day = -1;
+        $first_day = ($date_info['wday'] + 6) % 7;
         
         // Create the calendar HTML
         $calendar = "<table class='calendar'>";
@@ -114,7 +114,7 @@
         }
 
         $current_day = 1;
-
+        echo $first_day;
         // Fill the calendar with the days of the month
         while ($current_day <= $number_days) {
             // Start a new row each week
