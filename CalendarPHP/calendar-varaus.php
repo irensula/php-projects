@@ -112,11 +112,14 @@
                 $calendar .= "</tr><tr>";
             }
 
-            $calendar .= "<td class='day'>
-            <a href=''>
-            $current_day
-            </a></td>";
-
+              
+            if ($first_day >= 5 ) { 
+                $calendar .= "<td class='day'>$current_day</td>";
+            } else {
+                $calendar .= "<td class='day'><a href='https://github.com/'>$current_day</a></td>";
+            }
+            "</td>";
+          
             $current_day++;
             $first_day++;
         }
