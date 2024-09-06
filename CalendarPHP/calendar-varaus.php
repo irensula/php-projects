@@ -43,6 +43,18 @@
 		<p class="info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt voluptatum amet similique ipsa sit natus voluptatibus dignissimos esse, cupiditate vel dolore reiciendis dolorem, quidem nihil optio explicabo ex id accusamus.</p>
 		<h2 class="title">Varauskalenteri</h2>
 		</div>
+		
+			<?php 
+				// $month_num = date('m');
+				// $dateObj = DateTime::createFromFormat('!m', $month_num);
+				// $month = $dateObj->format('F');
+				// $year = date("Y");
+				?>
+			
+			<ul class='days'>
+			
+			</ul>
+
 
             <?php
     // Get the current month and year
@@ -53,7 +65,7 @@
         $month = date('m');
         $year = date('Y');
     }
-    
+
     // Calculate the previous and next month
     $prev_month = $month - 1;
     $next_month = $month + 1;
@@ -79,7 +91,6 @@
         $number_days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
 
         // Get the first day of the month
-        setlocale(LC_TIME, 'fi-FI');
         $date_info = getdate(mktime(0, 0, 0, $month, 1, $year));
         
         // Index value 0-6 of the first day of the month
@@ -103,7 +114,7 @@
         }
 
         $current_day = 1;
-        
+        echo $first_day;
         // Fill the calendar with the days of the month
         while ($current_day <= $number_days) {
             // Start a new row each week
@@ -112,14 +123,11 @@
                 $calendar .= "</tr><tr>";
             }
 
-              
-            if ($first_day >= 5 ) { 
-                $calendar .= "<td class='day'>$current_day</td>";
-            } else {
-                $calendar .= "<td class='day'><a href='https://github.com/'>$current_day</a></td>";
-            }
-            "</td>";
-          
+            $calendar .= "<td class='day'>
+            <a href=''>
+            $current_day
+            </a></td>";
+
             $current_day++;
             $first_day++;
         }
@@ -135,27 +143,11 @@
 
         return $calendar;
     }
-    // months in finnish
-    $months = [
-        1 => 'tammikuu',
-        2 => 'helmikuu',
-        3 => 'maaliskuu',
-        4 => 'huhtikuu',
-        5 => 'toukokuu',
-        6 => 'kesäkuu',
-        7 => 'heinäkuu',
-        8 => 'elokuu',
-        9 => 'syyskuu',
-        10 => 'lokakuu',
-        11 => 'marraskuu',
-        12 => 'joulukuu'
-    ];
 ?>
 
 <div class="month">
     <a href="?month=<?php echo $prev_month; ?>&year=<?php echo $prev_year; ?>"><i class="fa-solid fa-chevron-left"></i></a>
-    <!--origin date: echo date('F Y', strtotime("$year-$month-01")); -->
-    <h2 class="month-title"><?php echo ucfirst($months[(int)$month]) . " " . $year; ?></h2>
+    <h2 class="month-title"><?php echo date('F Y', strtotime("$year-$month-01")); ?></h2>
     <a href="?month=<?php echo $next_month; ?>&year=<?php echo $next_year; ?>"><i class="fa-solid fa-chevron-right"></i></a>
 </div>
 
