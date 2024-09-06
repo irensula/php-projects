@@ -30,12 +30,23 @@
         <?php 
             $days_of_week = ['Ma', 'Ti', 'Ke', 'To', 'Pe'];
             $time_of_day = ['aamupäivä', 'iltapäivä'];
+            $computers = ['Tietokone 1', 'Tietokone 2','Tietokone 3','Tietokone 4','Tietokone 5','Tietokone 6','Tietokone 7','Tietokone 8','Tietokone 9','Tietokone 10','Tietokone 11'];
+            $other_columns_data = [
+                ['Data 1A', 'Data 1B'],
+                ['Data 2A', 'Data 2B'],
+                ['Data 3A', 'Data 3B'],
+                ['Data 4A', 'Data 4B'],
+                ['Data 5A', 'Data 5B'],
+            ];
+            
             echo "<tr>";
+            echo "<th>Empty cell</th>";
             foreach ($days_of_week as $day_of_week) {
                 echo "<th>" . $day_of_week . "</th>";
             }
             echo "</tr>"; 
             echo "<tr>";  
+            echo "<th>Empty cell</th>";
             foreach ($days_of_week as $day_of_week) {
                 foreach ($time_of_day as $time) {
                     echo "<th>" . $time . "</th>";
@@ -43,12 +54,23 @@
             }
             echo "</tr>";
 
-            echo "<tr>";
-            foreach ($days_of_week as $day_of_week) {
-                echo "<td>Activity AM</td>";
-                echo "<td>Activity PM</td>";
+            foreach ($computers as $index =>$computer) {
+                echo "<tr>";
+                echo "<td>" . $computer . "</td>"; // Data from the array
+                // $other_columns_data[$index][0]
+                echo "<td> some </td>"; // Data from other_columns_data
+                // $other_columns_data[$index][0]
+                echo "<td>some</td>"; // Data from other_columns_data
+                echo "</tr>";
             }
-            echo "</tr>";
+
+            // echo "<tr>";
+            // foreach ($days_of_week as $day_of_week) {
+            //     echo "<td>Activity AM</td>";
+            //     echo "<td>Activity PM</td>";
+            // }
+            // echo "</tr>";
+           
         ?>
         
             </tr>
