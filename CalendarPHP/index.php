@@ -28,6 +28,13 @@
         <thead>
             
         <?php 
+            $day = date("Y/m/d");
+            $prevday = $day--;
+            $nextday = $day++;
+            echo $day;
+            echo $prevday;
+            echo $nextday;
+            
             $days_of_week = ['Ma', 'Ti', 'Ke', 'To', 'Pe'];
             $time_of_day = ['aamupäivä', 'iltapäivä'];
             $computers = ['Tietokone 1', 'Tietokone 2','Tietokone 3','Tietokone 4','Tietokone 5','Tietokone 6','Tietokone 7','Tietokone 8','Tietokone 9','Tietokone 10','Tietokone 11'];

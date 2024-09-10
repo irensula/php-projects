@@ -387,3 +387,37 @@ a:visited {
         right: 0;
     }
 }
+/* LOADER */
+body {
+    overflow: hidden;
+}
+#content {
+    display: none;
+}
+.loader-container {
+    position: fixed; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+}
+#loader {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    border: 10px solid;
+    border-color: #eee #eee var(--blue) #eee;
+    animation: loader 1s ease infinite;
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
