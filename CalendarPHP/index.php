@@ -125,11 +125,11 @@ function getFreeComputers($date, $endDay, $time) {
                 ON tietokone.tietokoneID = varaus.tietokoneID
                 AND (
                     -- Reservation period includes the specific day
-                    (varaus.päivä <= :date AND varaus.loppuPäivä >= :endDay)
+                    (varaus.päivä <= '2024-09-01' AND varaus.loppuPäivä >= '2024-09-01')
                 )
                 AND (
                     -- Filtering by reservation type
-                    varaus.varaustyyppi = :time 
+                    varaus.varaustyyppi = 'aamupäivä' 
                     OR varaus.varaustyyppi = 'kokopäivä' 
                     OR varaus.varaustyyppi = 'supervaraus'
                 )
