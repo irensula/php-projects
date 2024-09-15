@@ -79,9 +79,11 @@
                     <label for="computer">Valitse tietokone:</label>
                     <select id="computer" name="computer" required>
                         <?php foreach ($freeComputers as $computer): ?>
+                            <?php if($computer['päivä'] == NULL && $computer['loppuPäivä'] == NULL && $computer['varaustyyppi'] == NULL) { ?> 
                             <option value="<?php echo $computer['tietokoneID']; ?>">
-                                Tietokone <?php echo $computer['numero']; ?> (<?php echo $computer['tietoja'] . $computer['tilaID'] . $computer['päivä'] . $computer['loppuPäivä']; ?>)
+                                Tietokone <?php echo $computer['numero']; ?> (<?php echo $computer['tietoja'] . $computer['tilaID'] . $computer['päivä'] . $computer['loppuPäivä'] . $computer['varaustyyppi']; ?>)
                             </option>
+                        <?php } ?>
                         <?php endforeach; ?>
                     </select><br>
                     <label for="description">Selite:</label>
