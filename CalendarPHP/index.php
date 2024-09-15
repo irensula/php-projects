@@ -125,11 +125,11 @@ function getFreeComputers($date, $endDay, $time) {
                 ON tietokone.tietokoneID = varaus.tietokoneID
                 AND (
                     -- Reservation period includes the specific day
-                    (varaus.päivä <= '2024-09-01' AND varaus.loppuPäivä >= '2024-09-01')
+                    (varaus.päivä <= :date AND varaus.loppuPäivä >= :endDay)
                 )
                 AND (
                     -- Filtering by reservation type
-                    varaus.varaustyyppi = 'aamupäivä' 
+                    varaus.varaustyyppi = :time 
                     OR varaus.varaustyyppi = 'kokopäivä' 
                     OR varaus.varaustyyppi = 'supervaraus'
                 )
@@ -138,12 +138,14 @@ function getFreeComputers($date, $endDay, $time) {
                 ON tietokone.tilaID = tila.tilaID
             WHERE tietokone.tilaID = 1;
             ";
+    
     $stm = $pdo->prepare($sql);
     $stm->execute([
         ':date' => $date,
         ':endDay' => $endDay,
         ':time' => $time
     ]);
+    
     $result = $stm->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
