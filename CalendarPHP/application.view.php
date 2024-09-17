@@ -50,7 +50,7 @@
         <form class="application-form" action="/add_application" method="post">
 
             <label for="day">Päivä:</label>
-            <input id="day" type="date" name="day" value="<?=$d?>" oninput="updateHiddenInput()">
+            <input id="day" type="date" name="day" value="<?=$d?>" oninput="updateHiddenInput()" min="<?php echo date('Y-m-d'); ?>" required>
 
             <label for="time">Aika:</label>
             <select id="time" name="time" onchange="singleSelectChangeStyle()">
@@ -77,9 +77,15 @@
                 <!-- Reservation form if free computers are available -->
                 <form method="POST" action="/add_application">
                     <label for="computer">Valitse tietokone:</label>
+                    <?php echo $time; ?>
                     <select id="computer" name="computer" required>
                         <?php foreach ($freeComputers as $computer): ?>
-                            <?php if($computer['päivä'] == NULL && $computer['loppuPäivä'] == NULL && $computer['varaustyyppi'] == NULL) { ?> 
+                            <?php echo $time; ?>
+                            <?php if($computer['päivä'] == NULL 
+                                    && $computer['loppuPäivä'] == NULL 
+                                    && $computer['varaustyyppi'] !== $time
+                                    && $computer['varaustyyppi'] !== 'kokopäivä'
+                                    && $computer['varaustyyppi'] !== 'supervaraus') { ?> 
                             <option value="<?php echo $computer['tietokoneID']; ?>">
                                 Tietokone <?php echo $computer['numero']; ?> (<?php echo $computer['tietoja'] . $computer['tilaID'] . $computer['päivä'] . $computer['loppuPäivä'] . $computer['varaustyyppi']; ?>)
                             </option>
@@ -87,8 +93,7 @@
                         <?php endforeach; ?>
                     </select><br>
                     <label for="description">Selite:</label>
-                <textarea name="description" id="description" required></textarea> 
-
+                    <textarea name="description" id="description" required></textarea> 
                         <input type="hidden" name="day" value="<?php echo $day; ?>">
                         <input type="hidden" name="endDay" value="<?php echo $endDay; ?>">
                         <input type="hidden" name="time" value="<?php echo $time; ?>">
