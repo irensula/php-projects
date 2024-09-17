@@ -65,22 +65,20 @@
                 <input id="endDay" type="date" name="endDay" value="<?=$d?>">
             </div>
 
-            <button class="form-button" id="sendbutton" type="submit" value="Lähetä" name="submit">Katso vapaat tietokoneet</button>           
+            <button class="form-button" id="sendbutton" type="submit" value="Lähetä" name="submit">Jatka</button>           
                                   
         </form>
 
         <?php if (isset($freeComputers)): ?>
-            <h3>Vapaat tietokoneet:</h3>
+            
             <?php if (count($freeComputers) > 0): ?>
-                <p>Ilmaisten tietokoneiden määrä: <?php echo count($freeComputers); ?></p>
-
                 <!-- Reservation form if free computers are available -->
                 <form method="POST" action="/add_application">
                     <label for="computer">Valitse tietokone:</label>
-                    <?php echo $time; ?>
+                    
                     <select id="computer" name="computer" required>
                         <?php foreach ($freeComputers as $computer): ?>
-                            <?php echo $time; ?>
+                            
                             <?php if($computer['päivä'] == NULL 
                                     && $computer['loppuPäivä'] == NULL 
                                     && $computer['varaustyyppi'] !== $time
